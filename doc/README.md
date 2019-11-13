@@ -22,7 +22,7 @@ Cocos Creator 提供了强大的集成式游戏开发环境，使用引擎插件
 
 二、安装插件
 
-* 如需应用于全局（所有项目）下：解压后的插件文件夹拷贝到 `C:\Users\用户\.CocosCreator\packages`（Windows）或者 `用户/.CocosCreator/packages`（Mac）下即可。
+* 如需应用于全局（所有项目）下：将解压后的插件文件夹拷贝到 `C:\Users\用户\.CocosCreator\packages`（Windows）或者 `用户/.CocosCreator/packages`（Mac）下即可。
 * 如需应用于单个项目：将解压后的插件文件夹拷贝到项目工程中与 assets 文件夹同级的 packages 文件夹下（如果没有可以自行创建一个）。
 
 三、构建
