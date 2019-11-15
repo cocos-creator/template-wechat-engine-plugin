@@ -3,7 +3,7 @@
   "plugins": {
     "cocos": {
       "provider": "wx7095f7fa398a2f30",
-      "version": "2.2.0"
+      "version": "dev"
     }
   }
 }
