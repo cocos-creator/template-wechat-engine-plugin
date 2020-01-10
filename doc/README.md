@@ -32,5 +32,5 @@ Cocos Creator 提供了强大的集成式游戏开发环境，使用引擎插件
 
 ## 参考链接
 
- - 如有其它疑问，请参考 [Cocos Creator 微信小游戏引擎插件说明文档](https://github.com/cocos-creator/creator-docs/blob/v2.1/zh/publish/wechat-engine-plugin.md)
+ - 如有其它疑问，请参考 [Cocos Creator 微信小游戏引擎插件说明文档](https://github.com/cocos-creator/creator-docs/blob/master/zh/publish/wechat-engine-plugin.md)
  - 更多技术细节，请参考 [微信小游戏引擎插件官方说明](https://developers.weixin.qq.com/minigame/dev/guide/base-ability/game-engine-plugin.html)
