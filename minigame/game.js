@@ -5,7 +5,6 @@ require('adapter-min.js');
 __globalAdapter.init();
 
 requirePlugin('cocos');
-;
 
 __globalAdapter.adaptEngine();
 
@@ -18,25 +17,14 @@ require('./main'); // TODO: move to common
 // Adjust devicePixelRatio
 
 
-cc.view._maxPixelRatio = 4; // downloader polyfill
+cc.view._maxPixelRatio = 4;
 
-window.wxDownloader = remoteDownloader; // handle remote downloader
-
-remoteDownloader.REMOTE_SERVER_ROOT = "";
-remoteDownloader.SUBCONTEXT_ROOT = "";
-var pipeBeforeDownloader = cc.loader.subPackPipe || cc.loader.md5Pipe || cc.loader.assetLoader;
-cc.loader.insertPipeAfter(pipeBeforeDownloader, remoteDownloader);
-
-if (cc.sys.platform === cc.sys.WECHAT_GAME_SUB) {
-  var SUBDOMAIN_DATA = require('src/subdomain.json.js');
-
-  cc.game.once(cc.game.EVENT_ENGINE_INITED, function () {
-    cc.Pipeline.Downloader.PackDownloader._doPreload("SUBDOMAIN_DATA", SUBDOMAIN_DATA);
-  });
-} else {
+if (cc.sys.platform !== cc.sys.WECHAT_GAME_SUB) {
   // Release Image objects after uploaded gl texture
   cc.macro.CLEANUP_IMAGE_CACHE = true;
-}
+} // sub context need to boot after SubContextView component enabled in main context
 
-remoteDownloader.init();
-window.boot();
+
+if (!__globalAdapter.isSubContext) {
+  window.boot();
+}

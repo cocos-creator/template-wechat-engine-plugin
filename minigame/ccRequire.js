@@ -1,12 +1,13 @@
-"use strict";
-
-var moduleMap = {
-  'src/project.js': function srcProjectJs() {
-    require('src/project.js');
-  }
+let moduleMap = {
+'assets/internal/index.js' () { return require('assets/internal/index.js') },
+'assets/main/index.js' () { return require('assets/main/index.js') },
+// tail
 };
 
 window.__cocos_require__ = function (moduleName) {
-  var func = moduleMap[moduleName];
-  func && func();
+    let func = moduleMap[moduleName];
+    if (!func) {
+        throw new Error(`cannot find module ${moduleName}`);
+    }
+    return func();
 };
