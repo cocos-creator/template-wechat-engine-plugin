@@ -22,9 +22,6 @@ cc.view._maxPixelRatio = 4;
 if (cc.sys.platform !== cc.sys.WECHAT_GAME_SUB) {
   // Release Image objects after uploaded gl texture
   cc.macro.CLEANUP_IMAGE_CACHE = true;
-} // sub context need to boot after SubContextView component enabled in main context
-
-
-if (!__globalAdapter.isSubContext) {
-  window.boot();
 }
+
+window.boot();

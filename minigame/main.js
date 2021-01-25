@@ -30,14 +30,13 @@ window.boot = function () {
     server: settings.server,
     subContextRoot: settings.subContextRoot
   });
-  var _cc$AssetManager$Buil = cc.AssetManager.BuiltinBundleName,
-      RESOURCES = _cc$AssetManager$Buil.RESOURCES,
-      INTERNAL = _cc$AssetManager$Buil.INTERNAL,
-      MAIN = _cc$AssetManager$Buil.MAIN,
-      START_SCENE = _cc$AssetManager$Buil.START_SCENE;
-  var bundleRoot = [INTERNAL, MAIN];
-  settings.hasStartSceneBundle && bundleRoot.push(START_SCENE);
+  var RESOURCES = cc.AssetManager.BuiltinBundleName.RESOURCES;
+  var INTERNAL = cc.AssetManager.BuiltinBundleName.INTERNAL;
+  var MAIN = cc.AssetManager.BuiltinBundleName.MAIN;
+  var START_SCENE = cc.AssetManager.BuiltinBundleName.START_SCENE;
+  var bundleRoot = [INTERNAL];
   settings.hasResourcesBundle && bundleRoot.push(RESOURCES);
+  settings.hasStartSceneBundle && bundleRoot.push(MAIN);
   var count = 0;
 
   function cb(err) {
@@ -45,7 +44,11 @@ window.boot = function () {
     count++;
 
     if (count === bundleRoot.length + 1) {
-      cc.game.run(option, onStart);
+      // if there is start-scene bundle. should load start-scene bundle in the last stage
+      // Otherwise the main bundle should be the last
+      cc.assetManager.loadBundle(settings.hasStartSceneBundle ? START_SCENE : MAIN, function (err) {
+        if (!err) cc.game.run(option, onStart);
+      });
     }
   } // load plugins
 
