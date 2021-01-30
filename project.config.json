@@ -17,6 +17,8 @@
     "checkInvalidKey": true,
     "checkSiteMap": true,
     "uploadWithSourceMap": true,
+    "useMultiFrameRuntime": false,
+    "useApiHook": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
@@ -27,9 +29,7 @@
     "userConfirmedUseCompilerModuleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
-    "minifyWXSS": true,
-    "useMultiFrameRuntime": false,
-    "useApiHook": true
+    "minifyWXSS": true
   },
   "appid": "wx7095f7fa398a2f30",
   "projectname": "CocosPlugin",
