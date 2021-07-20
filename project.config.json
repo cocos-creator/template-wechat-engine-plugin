@@ -29,12 +29,12 @@
     "userConfirmedUseCompilerModuleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
-    "minifyWXSS": true
+    "minifyWXSS": false
   },
   "appid": "wx7095f7fa398a2f30",
   "projectname": "CocosPlugin",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
-  "libVersion": "2.10.1",
+  "libVersion": "2.16.0",
   "condition": {}
 }
